@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firebase Integration</title>
+  <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js"></script>
+</head>
+<body>
+  <h1>Data from Firebase</h1>
+  <ul id="data-list"></ul>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDr9kyjOYB71p1oaVAVZbuTEdllzwSitAM",
+      authDomain: "usdtmining.firebaseapp.com",
+projectId:"1:392335208422:android:00f3413ca65bc8648f7027",
+      messagingSenderId: "392335208422",
+      appId: "usdtmining-1c836"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Reference the database
+    const dbRef = db.ref();
+
+    // Retrieve data
+    dbRef.on('value', (snapshot) => {
+      const data = snapshot.val();
+      const dataList = document.getElementById('data-list');
+      dataList.innerHTML = ''; // Clear previous data
+
+      // Iterate through the data and display it
+      for (const key in data) {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${key}: ${data[key]}`;
+        dataList.appendChild(listItem);
+      }
+      console.log(data,"DATA from fb")
+    });
+  </script>
+</body>
+</html>
