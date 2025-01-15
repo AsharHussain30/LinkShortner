@@ -224,7 +224,8 @@
 
             if (docSnap.exists()) {
                 const data = docSnap.data();
-                loadingMessage.style.display = 'none';
+                // loadingMessage.style.display = 'none';
+              document.getElementById('loading-message').style.display = 'none'; // Hide loading message
                 listItem.textContent = data.LinkCode;
                 dataList.appendChild(listItem);
             } else {
@@ -232,7 +233,7 @@
             }
         } catch (error) {
             console.error('Error fetching document:', error);
-            loadingMessage.textContent = 'Error fetching code!';
+            //loadingMessage.textContent = 'Error fetching code!';
         }
     }
 
