@@ -225,7 +225,8 @@
             if (docSnap.exists()) {
                 const data = docSnap.data();
                 loadingMessage.style.display = 'none';
-                codeElement.textContent = data.LinkCode; // Assuming the document contains a `code` field
+                listItem.textContent = data.LinkCode;
+                dataList.appendChild(listItem);
             } else {
                 loadingMessage.textContent = 'No data found for the provided ID!';
             }
