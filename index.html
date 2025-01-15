@@ -235,15 +235,9 @@
           // Fetch the document
               const docSnap = await getDoc(docRef);
 
-              if (docSnap.exists()) {
-    docSnap.forEach((doc) => {
-          const listItem = document.createElement('h2');
-          listItem.textContent = doc.data().LinkCode;
-          dataList.appendChild(listItem);
-        });
-                
-                  // console.log('Document data:', docSnap.data().foreach);
-                  // codeElement.textContent = docSnap.data().LinkCode; // Assuming `code` is a field in the document
+              if (docSnap.exists()) {                
+                  console.log('Document data:', docSnap.data());
+                  dataList.textContent = docSnap.data().LinkCode; // Assuming `code` is a field in the document
               } else {
                   console.error('No such document!');
               }
