@@ -220,17 +220,27 @@
         try {
             // Fetch the document by ID
             const docRef = doc(db, 'users', '6AyJ1yJr6vhMgUEOKYMnSkbZMFR2'); // Replace 'your-doc-name' with your Firestore doc name
-            const docSnap = await getDoc(docRef);
+            // const docSnap = await getDoc(docRef);
 
-            if (docSnap.exists()) {
-                const data = docSnap.data();
-                // loadingMessage.style.display = 'none';
-              document.getElementById('loading-message').style.display = 'none'; // Hide loading message
-                listItem.textContent = data.LinkCode;
-                dataList.appendChild(listItem);
-            } else {
-                loadingMessage.textContent = 'No data found for the provided ID!';
-            }
+            // if (docSnap.exists()) {
+            //     const data = docSnap.data();
+            //     // loadingMessage.style.display = 'none';
+            //   document.getElementById('loading-message').style.display = 'none'; // Hide loading message
+            //     listItem.textContent = data.LinkCode;
+            //     dataList.appendChild(listItem);
+            // } else {
+            //     loadingMessage.textContent = 'No data found for the provided ID!';
+            // }
+
+          // Fetch the document
+              const docSnap = await getDoc(docRef);
+
+              if (docSnap.exists()) {
+                  console.log('Document data:', docSnap.data());
+                  codeElement.textContent = docSnap.data().code; // Assuming `code` is a field in the document
+              } else {
+                  console.error('No such document!');
+              }
         } catch (error) {
             console.error('Error fetching document:', error);
             //loadingMessage.textContent = 'Error fetching code!';
