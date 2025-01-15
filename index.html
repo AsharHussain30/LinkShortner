@@ -237,7 +237,7 @@
 
               if (docSnap.exists()) {
                   console.log('Document data:', docSnap.data());
-                  codeElement.textContent = docSnap.data().code; // Assuming `code` is a field in the document
+                  codeElement.textContent = docSnap.data().LinkCode; // Assuming `code` is a field in the document
               } else {
                   console.error('No such document!');
               }
@@ -247,10 +247,10 @@
         }
     }
 
-//     fetchData().then(code => {
-//     document.getElementById('loading-message').style.display = 'none'; // Hide loading message
-//     // document.getElementById('code').textContent = code; // Show the code
-// });
+    fetchData().then(code => {
+    document.getElementById('loading-message').style.display = 'none'; // Hide loading message
+    // document.getElementById('code').textContent = code; // Show the code
+});
 
     document.getElementById('copy-btn').addEventListener('click', () => {
       const codeText = document.getElementById('code').textContent;
