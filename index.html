@@ -179,7 +179,7 @@
   <script type="module">
     // Import Firestore
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js';
-    import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js';
+    import { getFirestore, doc, getDocs } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js';
 
     // Firebase configuration
     const firebaseConfig = {
@@ -195,8 +195,8 @@
     const db = getFirestore(app);
 
 
-    // Reference a collection
-    const dataCollection = collection(db, 'users' , "6AyJ1yJr6vhMgUEOKYMnSkbZMFR2");
+    // Reference a doc
+    // const dataCollection = collection(db, 'users');
 
 //     // Fetch data
 //     function fetchCode() {
@@ -219,7 +219,7 @@
 
         try {
             // Fetch the document by ID
-            const docRef = doc(db, 'users', '6AyJ1yJr6vhMgUEOKYMnSkbZMFR2'); // Replace 'your-collection-name' with your Firestore collection name
+            const docRef = doc(db, 'users', '6AyJ1yJr6vhMgUEOKYMnSkbZMFR2'); // Replace 'your-doc-name' with your Firestore doc name
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
