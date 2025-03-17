@@ -184,7 +184,8 @@
 
       try {
         // Call your backend to fetch user data
-        const response = await fetch(`https://dollar-dasher-server.vercel.app/api/user-data?userId=${userId}`);
+        const backendUrl = 'https://dollar-dasher-server.vercel.app';
+        const response = await fetch(`${backendUrl}/api/user-data?userId=${userId}`);
         const data = await response.json();
 
         if (data.LinkCode) {
